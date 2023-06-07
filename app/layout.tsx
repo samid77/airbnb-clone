@@ -1,6 +1,8 @@
 import './globals.css'
 import {Nunito} from 'next/font/google';
 import Navbar from './components/navbar/Navbar';
+import ClientOnly from './components/ClientOnly';
+import Modal from './components/modals/Modal';
 
 export const metadata = {
   title: 'Create Next App',
@@ -19,6 +21,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        {/* <ClientOnly>
+          <Navbar />
+        </ClientOnly> */}
+        <Modal 
+          isOpen
+          title='Login or Signup'
+          actionLabel='Submit'
+          onClose={() => {}}
+          onSubmit={() => {}}
+        />
         <Navbar />
         {children}
       </body>
