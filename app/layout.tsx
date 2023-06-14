@@ -21,18 +21,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        {/* <ClientOnly>
+        <ClientOnly>
           <Navbar />
-        </ClientOnly> */}
-        <Modal 
-          isOpen
+        </ClientOnly>
+        {/* <Modal 
+          isOpen={false}
           title='Login or Signup'
           actionLabel='Submit'
           onClose={() => {}}
           onSubmit={() => {}}
-        />
-        <Navbar />
-        {children}
+        /> */}
       </body>
     </html>
   )
