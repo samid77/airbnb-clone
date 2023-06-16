@@ -89,7 +89,7 @@ if(!isOpen) return null;
                         <div className='relative p-6 flex-auto'>
                             {body}
                         </div>
-                        <div className='f lex flex-col gap-2 p-6'>
+                        <div className='flex flex-col gap-2 p-6'>
                             <div className='flex flex-row items-center gap-4 w-full'>
                                 {
                                     secondaryAction && secondaryActionLabel && (
@@ -107,6 +107,7 @@ if(!isOpen) return null;
                                     onClick={handleSubmit}
                                 />
                             </div>
+                            {footer}
                         </div>
                     </div>
                 </div>
