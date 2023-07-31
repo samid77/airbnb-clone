@@ -28,7 +28,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
           <RegisterModal />
           <RentModal />
           <LoginModal />
-          <Navbar currentUser={currentUser}/>
+          <Navbar currentUser={currentUser} />
         </ClientOnly>
       </body>
     </html>
