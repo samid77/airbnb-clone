@@ -1,8 +1,7 @@
 'use client';
-
+import React, { useCallback, useState } from "react";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
-import { useCallback } from "react";
 import { TbPhotoPlus } from 'react-icons/tb'
 
 declare global {
@@ -16,10 +15,11 @@ interface ImageUploadProps {
   value: string;
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({
-  onChange,
-  value
-}) => {
+const ImageUpload: React.FC<ImageUploadProps> = ({onChange,value}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  }
   const handleUpload = useCallback((result: any) => {
     onChange(result.info.secure_url);
   }, [onChange]);
@@ -59,7 +59,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
             <div className="font-semibold text-lg">
               Click to upload
             </div>
-            {value && (
+            {value && !imageLoaded && (
+              <div className="animate-spin h-8 w-8 border-t-4 border-rose-600 rounded-full" />
+            )}
+            {value && imageLoaded && (
               <div className="
               absolute inset-0 w-full h-full">
                 <Image
@@ -67,6 +70,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                   style={{ objectFit: 'cover' }} 
                   src={value} 
                   alt="House" 
+                  onLoad={handleImageLoad}
                 />
               </div>
             )}
