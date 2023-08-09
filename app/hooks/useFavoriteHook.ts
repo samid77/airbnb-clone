@@ -26,8 +26,10 @@ const useFavoriteHook = ({listingId, currentUser}: IUseFavorite) => {
         try {
             let request;
             if(hasFavorited) {
+                console.log(`delete favorite`)
                 request = () => axios.delete(`/api/favorites/${listingId}`)
             } else {
+                console.log(`tag favorite`)
                 request = () => axios.post(`/api/favorites/${listingId}`)
             }
 

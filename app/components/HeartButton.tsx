@@ -11,6 +11,7 @@ interface HeartButtonProps {
 
 const HeartButton: React.FC<HeartButtonProps> = ({listingId, currentUser}) => {
   const {hasFavorited, toggleFavorite} = useFavoriteHook({listingId, currentUser});
+  console.log(`hasFavorited: ${hasFavorited}`)
   return (
     <div
         onClick={toggleFavorite}
