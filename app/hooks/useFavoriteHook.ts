@@ -26,16 +26,15 @@ const useFavoriteHook = ({listingId, currentUser}: IUseFavorite) => {
         try {
             let request;
             if(hasFavorited) {
-                console.log(`delete favorite`)
                 request = () => axios.delete(`/api/favorites/${listingId}`)
+                toast.success('Favorite untagged')
             } else {
-                console.log(`tag favorite`)
                 request = () => axios.post(`/api/favorites/${listingId}`)
+                toast.success('Favorite tagged')
             }
 
             await request();
             router.refresh();
-            toast.success('Favorite tagged')
         } catch (error) {
             console.error(error)
             toast.error('Something went wrong')
