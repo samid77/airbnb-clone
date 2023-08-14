@@ -1,6 +1,6 @@
 'use client'
 import React, {useCallback, useEffect, useMemo, useState} from 'react'
-import { SafeListing, SafeUser } from '@/app/types'
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types'
 import { Reservation } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
@@ -25,7 +25,7 @@ const initialDateRange = {
 interface ListingClientProps {
     listing: SafeListing & {user: SafeUser};
     currentUser?: SafeUser | null;
-    reservations?: Reservation[];
+    reservations?: SafeReservation[];
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({listing, currentUser, reservations=[]}) => {
